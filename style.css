@@ -1,0 +1,290 @@
+*{
+    padding:0;
+    margin:0;
+}
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: url(./img/bg-intro-desktop.png) #9c95e9;
+    position: relative;
+}
+
+body * {
+    /* outline:1px dashed red; */
+}
+
+
+.alert {
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+
+.container {
+    /* width:1400px; */
+    /* width: 100%; */
+    /* height: 100vh; */
+    padding:50px 20px 10px 90px
+}
+
+    .errors{
+        color:red;
+    }
+
+    .highlight {
+        border:2px solid red !important;
+    }
+
+.dim{
+    position: absolute;
+    width: 100%;
+    background: red;
+    height: 100%;
+}
+
+    .container .cta, .container .form{
+        display: inline-block;
+        vertical-align: middle;
+       
+    }
+
+
+    .container .cta{
+        width:550px;
+        color:#fff;
+        text-align: center;
+    }
+        .container .cta p{
+            line-height: 2;
+            font-size: 1.3rem;
+        }
+
+    .container .form{
+        margin-left:200px;
+        width: 550px;
+        margin-bottom: 10px;
+       
+    }
+
+        .container .form h2 {
+            margin-bottom: 40px;
+            background: #FF7A7A;
+            border-radius: 5px;
+            padding: .8rem 2rem;
+            text-align: center;
+            box-shadow: 0 0.5rem 0 rgb(0 0 0 / 20%);
+            color: #fff;
+        }
+
+        .container .form form{
+            text-align: center;
+
+            background-color: #fff;
+            border-radius: 7px;
+            padding: 2rem;
+            box-shadow: 0 0.5rem 0 rgb(0 0 0 / 20%);
+        
+        }
+        .container .form form input[type="text"],.container .form form input[type="password"]{
+            display:block;
+            /* padding:10px; */
+            width:95%;
+            margin-bottom:10px;
+            border: 2px solid #ddd;
+            padding: 1rem;
+            font-weight: 600;
+            border-radius: 5px;
+            /* width: 100%; */
+            
+        }
+
+        .container .form form input[type="submit"]{
+            margin-bottom: 20px;
+            width:100%;
+            background: #88E0BA;
+            border-color: #88E0BA;
+            color: #fff;
+            box-shadow: 0 3px 0 rgb(0 0 0 / 20%);
+            transition: all .2s;
+            cursor: pointer;
+            padding: 1rem 3.5rem;
+            border-radius: 5px;
+        }
+
+
+        .container .form form input[type="submit"]:hover{
+            filter: opacity(0.6);
+        }
+
+        .container .form form a {
+            color:#9c95e9;
+            text-decoration: none;
+        }
+    
+
+    .container .created_by {
+        text-align: center;
+        font-size: 1.4rem;
+    }
+
+
+
+
+/* the wall css */
+
+.container-full{
+    width: 100%;
+}
+
+    nav {
+        background: #FF7A7A;
+        padding:20px;
+        color: #fff;
+        margin-bottom: 20px;
+    }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav a, nav div{
+            display:inline-block;
+            vertical-align: top;
+        }
+
+        nav div{
+            float:right;
+        }
+
+        nav div h1, nav div a{
+            display:inline-block;
+            vertical-align: middle;
+        }
+
+        nav div h1{
+            margin-right:10px
+        }
+
+    .main-content{
+       
+        width: 1440px;
+        margin: 0 auto;
+        padding:20px;
+        /* overflow: hidden;
+        height: auto; */
+    }
+        .main-content form {
+            /* width: 1240px; */
+            margin: 0 auto;
+            padding: 20px 0;
+           
+        }
+
+        .main-content form textarea, .main-content form input[type="submit"]{
+            display: block;
+        }
+
+        .main-content form textarea{
+            width: 1440px;
+            height: 200px;
+           
+          
+        }
+
+
+        .main-content form input[type="submit"]{
+            float: right;
+            margin-top:20px;
+            /* width:100%; */
+            background: #88E0BA;
+            border-color: #88E0BA;
+            color: #fff;
+            box-shadow: 0 3px 0 rgb(0 0 0 / 20%);
+            transition: all .2s;
+            cursor: pointer;
+            padding: 1rem 3.5rem;
+            border-radius: 5px;
+            
+            
+        }
+
+        form input[type="submit"]:hover{
+            filter: opacity(0.6);
+        }
+
+        .clearfix{
+            clear: both;
+        }
+
+
+        .container-full .main-content .message-list .message {
+            margin-bottom: 20px;
+            padding-bottom: 50px;
+            display:block;
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px solid #333;
+        }
+
+            .container-full .main-content .message-list .message a {
+                text-decoration: none;
+                color: #fff;
+            }
+
+            .delete-message{
+                margin-top:0 !important;
+                background: red !important;
+                border-color: red !important;
+                color: #fff;
+                box-shadow: 0 3px 0 rgb(0 0 0 / 20%);
+                transition: all .2s;
+                cursor: pointer;
+                padding: 1rem 3.5rem;
+                border-radius: 5px;
+            }
+
+
+
+
+
+
+        .container-full .main-content .message-list .message p{
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+
+        /* message */
+        .container-full .main-content  div.message{
+            margin-bottom: 20px;
+        }
+
+        .container-full .main-content .comments{
+            margin-left: 20px;
+        }
+            .container-full .main-content .comments div{
+                margin-bottom: 20px;
+            }
+                .container-full .main-content .comments div h2{
+                    margin-bottom: 10px;
+                }
+
+
+
+    
+
+
