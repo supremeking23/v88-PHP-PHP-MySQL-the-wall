@@ -66,7 +66,7 @@ $comments = fetch_all($get_comments_by_message_id);
                 <input type="hidden" name="process_type" value="post-comment">
                 <input type="hidden" name="message_id" value="<?= $_GET["message_id"]?>">
                 <textarea name="comment" id=""></textarea>
-                <input type="submit" value="Submit">
+                <input type="submit" value="Post a comment">
                 <div class="clearfix"></div>
             </form>
         </div>

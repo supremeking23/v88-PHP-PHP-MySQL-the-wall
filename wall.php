@@ -59,7 +59,7 @@ function dateDifference($date_1  , $differenceFormat = '%i' )
             <form action="process.php" method="POST">
                 <input type="hidden" name="process_type" value="post-message">
                 <textarea name="message" id=""></textarea>
-                <input type="submit" value="Submit">
+                <input type="submit" value="Post a mesage">
                 <div class="clearfix"></div>
             </form>
 

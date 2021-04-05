@@ -33,8 +33,8 @@ session_start();
         
        
        <div class="cta">
-            <h1>Learn to code by watching others</h1>
-            <p>See how experienced developers solve problems in real-time. Watching scripted tutorials is great, but understanding how developers think is invaluable.</p>
+            <h1>CodingDojo Wall</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid excepturi earum dolores dolorem, non consectetur quae est! Fugiat nostrum asperiores iure sed? Quaerat delectus sit nemo id, incidunt reprehenderit eveniet.</p>
 
           
        </div>

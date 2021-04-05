@@ -38,7 +38,7 @@ session_start();
        </div>
 
        <div class="form">
-            <h2>Try it free 7 days then $20/mo. thereafter</h2>
+            <h2>Registration Form</h2>
 
             <form action="process.php" method="POST">
                 <input type="hidden" name="process_type" value="register" >
