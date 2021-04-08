@@ -1,6 +1,8 @@
 <?php
 session_start();
-
+if(isset($_SESSION["first_name"])){
+    header("Location: wall.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

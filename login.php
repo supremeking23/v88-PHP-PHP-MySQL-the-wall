@@ -1,6 +1,8 @@
 <?php
 session_start();
-
+if(isset($_SESSION["first_name"])){
+    header("Location: wall.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +42,7 @@ session_start();
        </div>
 
        <div class="form">
-            <h2>Try it free 7 days then $20/mo. thereafter</h2>
+            <h2>Login Form</h2>
 
             <form action="process.php" method="POST">
                 <input type="hidden" name="process_type" value="login">
@@ -60,7 +62,7 @@ session_start();
 </html>
 <?php 
 unset($_SESSION["errors"]);
-unset($_SESSION["first_name"]);
+// unset($_SESSION["first_name"]);
 unset($_SESSION["email"]);
 unset($_SESSION["has_error_email"]);
 unset($_SESSION["has_error_password"]);

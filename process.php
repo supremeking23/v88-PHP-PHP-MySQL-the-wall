@@ -97,13 +97,11 @@ if(isset($_POST["process_type"]) AND $_POST["process_type"] === "register") {
     $query = "SELECT * FROM users WHERE email = '$email'";
     $run_query = fetch_record($query);
     if($run_query){
-        
-        
-        // $_SESSION["errors"][] = "Email already exist";
+        $_SESSION["errors"][] = "Email already exist";
         header("Location: index.php");
     }else {
-
         $query = "INSERT INTO users(first_name,last_name,email,password,salt,created_at) VALUES ('$first_name','$last_name','$email','$encrypted_password', '$salt',NOW())";
+        echo $query; 
         $run_query = run_mysql_query($query);
         if($run_query){
             echo $run_query;
@@ -136,27 +134,24 @@ if(isset($_POST["process_type"]) AND $_POST["process_type"] === "register") {
         $_SESSION["has_error_password"] = TRUE;
     }
 
-
-
-     
-     
-    if(!empty($user)){
-        $encrypted_password = md5($password . '' . $user["salt"]);
-        if($user["password"] == $encrypted_password){
-            $_SESSION["first_name"] = $user["first_name"];
-            $_SESSION["user_id"] = $user["id"];
-            header("Location: wall.php");
-        }else{
-            $_SESSION["errors"][] = "Incorrect Password";
-            $_SESSION["has_error_password"] = TRUE;
-            
+    if(!(empty($_POST["email"])) AND !(empty($_POST["password"]))){
+        if(!empty($user)){
+            $encrypted_password = md5($password . '' . $user["salt"]);
+            if($user["password"] == $encrypted_password){
+                $_SESSION["first_name"] = $user["first_name"];
+                $_SESSION["user_id"] = $user["id"];
+                header("Location: wall.php");
+            }else{
+                $_SESSION["errors"][] = "Incorrect Password";
+                $_SESSION["has_error_password"] = TRUE;
+                
+            }
+        }else {
+            $_SESSION["errors"][] = "Incorrect Email";
+            $_SESSION["has_error_email"] = TRUE;
+           
         }
-    }else {
-        $_SESSION["errors"][] = "Incorrect Email";
-        $_SESSION["has_error_email"] = TRUE;
-       
     }
-
 
     if(isset($_SESSION["errors"]) AND count($_SESSION["errors"]) > 0){
         header("Location: login.php");

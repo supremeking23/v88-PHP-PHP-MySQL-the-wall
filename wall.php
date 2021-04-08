@@ -10,7 +10,7 @@ $query = "SELECT messages.id as message_id,users.id as user_id,messages.message 
 $messages = fetch_all($query);
 
 
-function dateDifference($date_1  , $differenceFormat = '%i' )
+function dateDifference($date_1  , $differenceFormat = '%y %m %d %h %i %s')
 {
     $datetime1 = date_create($date_1);
     $datetime2 = date_create();
@@ -39,7 +39,7 @@ function dateDifference($date_1  , $differenceFormat = '%i' )
             </a>
             <div class="">
                 <h1> Welcome <?= $_SESSION["first_name"];?></h1>
-                <a href="login.php">Logout</a>
+                <a href="logout.php">Logout</a>
             </div>
         </nav>
 
@@ -68,15 +68,60 @@ function dateDifference($date_1  , $differenceFormat = '%i' )
             <?php foreach($messages as $message):
                  $date = date_create($message["created_at"]);
                  $format_date = date_format($date,"F dS Y");    
+                //  echo dateDifference($message["created_at"]);
+                 $explode = explode(" ",dateDifference($message["created_at"]));
+
+                 //check if minutes is < 60
+                 $time = "";
+                //  if($explode[0] >= 1){
+                //      $time = "{$explode[0]} year(s) ago";
+                //  }else if ($explode[1] < 13 AND $explode[2] > 32){
+                //     $time = "{$explode[1]} months ago";
+                //  }else if ($explode[2] < 32 AND $explode[3] > 13){
+                //     $time = "{$explode[2]} days ago";
+                //  }else if ($explode[3] < 13 AND $explode[4] > 61){
+                //     $time = "{$explode[3]} hours ago";
+                //  }else if ($explode[4] < 61 AND $explode[5] > 61){
+                //     $time = "{$explode[4]} minutes ago";
+                //  }else if ($explode[5] < 61){
+                //     $time = "{$explode[5]} seconds ago";
+                //  }else{
+                //      $time ="sds";
+                //  }
+                
+                $show_delete = FALSE;
+                if((int) $explode[0] >= 1){
+                    $time = "{$explode[0]} year(s) ago";
+                }else if ((int) $explode[1] >= 1){
+                    $time = "{$explode[1]} months ago";
+                }else if ((int) $explode[2] >=1){
+                    $time = "{$explode[2]} days ago";
+                }else if ((int) $explode[3] >= 1){
+                    $time = "{$explode[3]} hours ago";
+                }else if ((int) $explode[4] >= 1){
+                    $time = "{$explode[4]} minutes ago";
+                    if((int) $explode[4] <= 30 ){
+                        $show_delete = TRUE;
+                    }
+                }else if ((int) $explode[5] >=0){
+                   $time = "{$explode[5]} seconds ago";
+                }else{
+                    // $time ="sds";
+                }
+
+                
+               
+
+                //  var_dump($explode);
             ?>
                 <div class="message">
                     <a  href="message.php?message_id=<?= $message["message_id"]?>">
                         <h2><?= $message["full_name"];?> - <?= $format_date;?></h2>
                     </a>
-                    <p><?= $message["message"];?></p>
-                    <h5> posted: <?= dateDifference($message["created_at"])?> mins ago</h5>
+                    <p><?= $message["message"];?> sdsdsds<?php echo $show_delete; ?></p>
+                    <h5> posted: <?= $time;?></h5>
 
-                    <?php if(!(dateDifference($message["created_at"]) > 30)): ?>
+                    <?php if($show_delete): ?>
                         <?php if(isset($_SESSION["user_id"]) AND $_SESSION["user_id"] === $message["user_id"]):?>
                         <form action="process.php" method="POST">
                             <input type="hidden" name="process_type" value="delete-message">

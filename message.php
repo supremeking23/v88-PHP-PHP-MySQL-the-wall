@@ -35,7 +35,7 @@ $comments = fetch_all($get_comments_by_message_id);
             </a>
             <div class="">
                 <h1> Welcome <?= $_SESSION["first_name"];?></h1>
-                <a href="login.php">Logout</a>
+                <a href="logout.php">Logout</a>
             </div>
         </nav>
 
