@@ -69,7 +69,7 @@ function dateDifference($date_1  , $differenceFormat = '%y %m %d %h %i %s')
                  $date = date_create($message["created_at"]);
                  $format_date = date_format($date,"F dS Y");    
                 //  echo dateDifference($message["created_at"]);
-                 $explode = explode(" ",dateDifference($message["created_at"]));
+                 $scatter_date_info = explode(" ",dateDifference($message["created_at"]));
 
                  //check if minutes is < 60
                  $time = "";
@@ -90,21 +90,22 @@ function dateDifference($date_1  , $differenceFormat = '%y %m %d %h %i %s')
                 //  }
                 
                 $show_delete = FALSE;
-                if((int) $explode[0] >= 1){
-                    $time = "{$explode[0]} year(s) ago";
-                }else if ((int) $explode[1] >= 1){
-                    $time = "{$explode[1]} months ago";
-                }else if ((int) $explode[2] >=1){
-                    $time = "{$explode[2]} days ago";
-                }else if ((int) $explode[3] >= 1){
-                    $time = "{$explode[3]} hours ago";
-                }else if ((int) $explode[4] >= 1){
-                    $time = "{$explode[4]} minutes ago";
-                    if((int) $explode[4] <= 30 ){
+                if((int) $scatter_date_info[0] >= 1){
+                    $time = "{$scatter_date_info[0]} year(s) ago";
+                }else if ((int) $scatter_date_info[1] >= 1){
+                    $time = "{$scatter_date_info[1]} months ago";
+                }else if ((int) $scatter_date_info[2] >=1){
+                    $time = "{$scatter_date_info[2]} days ago";
+                }else if ((int) $scatter_date_info[3] >= 1){
+                    $time = "{$scatter_date_info[3]} hours ago";
+                }else if ((int) $scatter_date_info[4] >= 1){
+                    $time = "{$scatter_date_info[4]} minutes ago";
+                    if((int) $scatter_date_info[4] <= 30 ){
                         $show_delete = TRUE;
                     }
-                }else if ((int) $explode[5] >=0){
-                   $time = "{$explode[5]} seconds ago";
+                }else if ((int) $scatter_date_info[5] >=0){
+                   $time = "{$scatter_date_info[5]} seconds ago";
+                   $show_delete = TRUE;
                 }else{
                     // $time ="sds";
                 }
@@ -118,7 +119,7 @@ function dateDifference($date_1  , $differenceFormat = '%y %m %d %h %i %s')
                     <a  href="message.php?message_id=<?= $message["message_id"]?>">
                         <h2><?= $message["full_name"];?> - <?= $format_date;?></h2>
                     </a>
-                    <p><?= $message["message"];?> sdsdsds<?php echo $show_delete; ?></p>
+                    <p><?= $message["message"];?><?php echo $show_delete; ?></p>
                     <h5> posted: <?= $time;?></h5>
 
                     <?php if($show_delete): ?>
